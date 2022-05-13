@@ -243,7 +243,7 @@ print(python_lecturer < english_reviewer, end='\n\n')
 
 
 def average_student_course_grade(students, course_name):
-    filtered_students = [i for i in students if course_name in i.courses_in_progress]
+    filtered_students = [i for i in students if course_name in i.grades.keys()]
     count = 0
     for item in filtered_students:
         count += sum(item.grades[course_name]) / len(item.grades[course_name])
@@ -256,7 +256,7 @@ print('Средняя оценка лекторов на курсе Python -', a
 
 
 def average_lecturer_course_grade(lecturers, course_name):
-    filtered_lecturers = [i for i in lecturers if course_name in i.courses_attached]
+    filtered_lecturers = [i for i in lecturers if course_name in i.grades.keys()]
     count = 0
     for item in filtered_lecturers:
         count += sum(item.grades[course_name]) / len(item.grades[course_name])
